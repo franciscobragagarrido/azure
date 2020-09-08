@@ -1,10 +1,7 @@
 
-#Francisco Braga Garrido
+# Francisco Braga Garrido
 
 
-#Tareas del curso UTM
+# Tareas del curso UTM
 
-Tareas del curso UTM
-
-
-tarea 1 : Titulos de las lecciones vimtutor
+Tarea 1 : Titulos de las lecciones vimtutor
