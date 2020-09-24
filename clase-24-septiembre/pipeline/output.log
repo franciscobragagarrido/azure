@@ -1,0 +1,2 @@
+{"@version":"1","@timestamp":"2020-09-24T22:22:40.715Z","path":"/app/input.log","host":"47f93e117a93","message":"hola mundo desde logstash"}
+{"@version":"1","@timestamp":"2020-09-24T22:27:43.449Z","path":"/app/input.log","host":"47f93e117a93","message":"hola mundo desde logstash v2"}

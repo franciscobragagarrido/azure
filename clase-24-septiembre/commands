@@ -1,0 +1,50 @@
+crear una red 
+docker network create -d bridge elk
+
+ver las redes 
+ docker network ls 
+
+Inspeccionar su configuración
+	docker inspect elk
+
+LEVANTAR LOGSTASH
+
+docker run -it --net=elk --name logstash --rm docker.elastic.co/logstash/logstash:7.6.2 -e 'input { stdin { } } output { stdout { codec => rubydebug } }'
+
+
+Contenedores 
+watch docker ps 
+
+
+mkdir pipeline
+vi pipeline/logstash.conf
+
+
+#logstash.conf
+input {
+  file {
+    path => "/app/input.log"
+  }
+}
+
+output {
+  file {
+    path => "/app/output.log"
+  }
+}
+
+::::::::::.TERMINAL 1:::::::::::::::::::
+Imagen de docker de logstash
+
+ docker run -it --rm --name logstash -v "$PWD/pipeline":/app --entrypoint bash docker.elastic.co/logstash/logstash:7.6.2 
+
+
+logstash -f /app/logstash.conf
+
+:::::::::::::::TERMINAL 2:::::::::::::::::
+docker exec -it logstash bash
+
+ touch /app/output.log; tail -f /app/output.log
+
+echo "hola mundo desde logstash" >> /app/input.log
+
